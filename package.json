@@ -1,7 +1,7 @@
 {
-  "name": "prismarine-template",
+  "name": "prismarine-packet-dumper",
   "version": "1.0.0",
-  "description": "A template repository to make it easy to create new prismarine repo",
+  "description": "Dump minecraft packets",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PrismarineJS/prismarine-template.git"
+    "url": "git+https://github.com/PrismarineJS/prismarine-packet-dumper.git"
   },
   "keywords": [
     "prismarine",
@@ -21,9 +21,9 @@
   "author": "Romain Beaumont",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/PrismarineJS/prismarine-template/issues"
+    "url": "https://github.com/PrismarineJS/prismarine-packet-dumper/issues"
   },
-  "homepage": "https://github.com/PrismarineJS/prismarine-template#readme",
+  "homepage": "https://github.com/PrismarineJS/prismarine-packet-dumper#readme",
   "devDependencies": {
     "jest": "^26.1.0",
     "require-self": "^0.2.3",
