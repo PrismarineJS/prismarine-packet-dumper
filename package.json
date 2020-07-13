@@ -27,7 +27,6 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
     "jest": "^26.1.0",
     "require-self": "^0.2.3",
     "standard": "^14.3.4"
