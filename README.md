@@ -11,9 +11,23 @@ Dump minecraft packets
 
 ## Usage
 
-```js
+```sh
+node bin/generateLogs.js 1.16.1
+node bin/verifyPackets.js 1.16.1
+```
 
+```js
+const { MineflayerLog, PacketVerifier, Direction } = require('prismarine-packet-dumper');
+const fsP = require('fs').promises;
+
+let packetLogger = new MineflayerLog({ version: '1.16.1', outputDirectory: 'packets' });
+packetLogger.start('localhost', 25565);
+
+// then, later:
+let verifier = new PacketVerifier({ version: '1.16.1' });
+verifier.verify(await fsP.readFile('packets/from-server/00000000'), Direction.ServerToClient);
 ```
 
 ## API
 
+TODO, for now, see jsdoc

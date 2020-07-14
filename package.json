@@ -1,7 +1,7 @@
 {
   "name": "prismarine-packet-dumper",
-  "version": "1.0.0",
-  "description": "Dump minecraft packets",
+  "version": "0.1.0",
+  "description": "Automatically dump packets from a Minecraft server",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose",
@@ -10,23 +10,28 @@
     "lint": "standard",
     "fix": "standard --fix"
   },
+  "author": "iczero",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PrismarineJS/prismarine-packet-dumper.git"
   },
-  "keywords": [
-    "prismarine",
-    "template"
-  ],
-  "author": "Romain Beaumont",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/PrismarineJS/prismarine-packet-dumper/issues"
   },
   "homepage": "https://github.com/PrismarineJS/prismarine-packet-dumper#readme",
+  "dependencies": {
+    "got": "^11.5.0",
+    "minecraft-wrap": "^1.2.3",
+    "mineflayer": "^2.23.0",
+    "rimraf": "^3.0.2"
+  },
   "devDependencies": {
     "jest": "^26.1.0",
     "require-self": "^0.2.3",
     "standard": "^14.3.4"
-  }
+  },
+  "keywords": [
+    "prismarine"
+  ]
 }

@@ -1,3 +1,14 @@
+# Dependency directories
 node_modules/
+
+# lock file
 package-lock.json
-.vscode
+
+# minecraft server working directory
+/server
+
+# packet output
+/packets
+
+# downloaded version information
+/versions
