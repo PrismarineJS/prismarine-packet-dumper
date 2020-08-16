@@ -1,0 +1,1576 @@
+{
+  "reset": true,
+  "advancementMapping": [
+    {
+      "key": "minecraft:adventure/sleep_in_bed",
+      "value": {
+        "parentId": "minecraft:adventure/root",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.sleep_in_bed.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.sleep_in_bed.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 730,
+            "itemCount": 1
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 1,
+          "yCord": 9.5
+        },
+        "criteria": [
+          {
+            "key": "slept_in_bed"
+          }
+        ],
+        "requirements": [
+          [
+            "slept_in_bed"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/throw_trident",
+      "value": {
+        "parentId": "minecraft:adventure/kill_a_mob",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.throw_trident.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.throw_trident.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 921,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 1
+        },
+        "criteria": [
+          {
+            "key": "shot_trident"
+          }
+        ],
+        "requirements": [
+          [
+            "shot_trident"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/kill_a_mob",
+      "value": {
+        "parentId": "minecraft:adventure/root",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.kill_a_mob.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.kill_a_mob.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 586,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 1,
+          "yCord": 2.75
+        },
+        "criteria": [
+          {
+            "key": "minecraft:blaze"
+          },
+          {
+            "key": "minecraft:pillager"
+          },
+          {
+            "key": "minecraft:skeleton"
+          },
+          {
+            "key": "minecraft:elder_guardian"
+          },
+          {
+            "key": "minecraft:zoglin"
+          },
+          {
+            "key": "minecraft:ravager"
+          },
+          {
+            "key": "minecraft:ghast"
+          },
+          {
+            "key": "minecraft:hoglin"
+          },
+          {
+            "key": "minecraft:guardian"
+          },
+          {
+            "key": "minecraft:vindicator"
+          },
+          {
+            "key": "minecraft:magma_cube"
+          },
+          {
+            "key": "minecraft:spider"
+          },
+          {
+            "key": "minecraft:creeper"
+          },
+          {
+            "key": "minecraft:wither"
+          },
+          {
+            "key": "minecraft:evoker"
+          },
+          {
+            "key": "minecraft:slime"
+          },
+          {
+            "key": "minecraft:phantom"
+          },
+          {
+            "key": "minecraft:zombified_piglin"
+          },
+          {
+            "key": "minecraft:witch"
+          },
+          {
+            "key": "minecraft:wither_skeleton"
+          },
+          {
+            "key": "minecraft:husk"
+          },
+          {
+            "key": "minecraft:ender_dragon"
+          },
+          {
+            "key": "minecraft:shulker"
+          },
+          {
+            "key": "minecraft:cave_spider"
+          },
+          {
+            "key": "minecraft:piglin"
+          },
+          {
+            "key": "minecraft:enderman"
+          },
+          {
+            "key": "minecraft:silverfish"
+          },
+          {
+            "key": "minecraft:stray"
+          },
+          {
+            "key": "minecraft:endermite"
+          },
+          {
+            "key": "minecraft:vex"
+          },
+          {
+            "key": "minecraft:zombie"
+          },
+          {
+            "key": "minecraft:drowned"
+          },
+          {
+            "key": "minecraft:zombie_villager"
+          }
+        ],
+        "requirements": [
+          [
+            "minecraft:blaze",
+            "minecraft:cave_spider",
+            "minecraft:creeper",
+            "minecraft:drowned",
+            "minecraft:elder_guardian",
+            "minecraft:ender_dragon",
+            "minecraft:enderman",
+            "minecraft:endermite",
+            "minecraft:evoker",
+            "minecraft:ghast",
+            "minecraft:guardian",
+            "minecraft:hoglin",
+            "minecraft:husk",
+            "minecraft:magma_cube",
+            "minecraft:phantom",
+            "minecraft:piglin",
+            "minecraft:pillager",
+            "minecraft:ravager",
+            "minecraft:shulker",
+            "minecraft:silverfish",
+            "minecraft:skeleton",
+            "minecraft:slime",
+            "minecraft:spider",
+            "minecraft:stray",
+            "minecraft:vex",
+            "minecraft:vindicator",
+            "minecraft:witch",
+            "minecraft:wither_skeleton",
+            "minecraft:wither",
+            "minecraft:zoglin",
+            "minecraft:zombie_villager",
+            "minecraft:zombie",
+            "minecraft:zombified_piglin"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/summon_iron_golem",
+      "value": {
+        "parentId": "minecraft:adventure/trade",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.summon_iron_golem.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.summon_iron_golem.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 217,
+            "itemCount": 1
+          },
+          "frameType": 2,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 5.5
+        },
+        "criteria": [
+          {
+            "key": "summoned_golem"
+          }
+        ],
+        "requirements": [
+          [
+            "summoned_golem"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/kill_all_mobs",
+      "value": {
+        "parentId": "minecraft:adventure/kill_a_mob",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.kill_all_mobs.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.kill_all_mobs.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 595,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 1,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 3.5
+        },
+        "criteria": [
+          {
+            "key": "minecraft:blaze"
+          },
+          {
+            "key": "minecraft:pillager"
+          },
+          {
+            "key": "minecraft:skeleton"
+          },
+          {
+            "key": "minecraft:elder_guardian"
+          },
+          {
+            "key": "minecraft:zoglin"
+          },
+          {
+            "key": "minecraft:ravager"
+          },
+          {
+            "key": "minecraft:ghast"
+          },
+          {
+            "key": "minecraft:hoglin"
+          },
+          {
+            "key": "minecraft:guardian"
+          },
+          {
+            "key": "minecraft:vindicator"
+          },
+          {
+            "key": "minecraft:magma_cube"
+          },
+          {
+            "key": "minecraft:spider"
+          },
+          {
+            "key": "minecraft:creeper"
+          },
+          {
+            "key": "minecraft:wither"
+          },
+          {
+            "key": "minecraft:evoker"
+          },
+          {
+            "key": "minecraft:slime"
+          },
+          {
+            "key": "minecraft:phantom"
+          },
+          {
+            "key": "minecraft:zombified_piglin"
+          },
+          {
+            "key": "minecraft:witch"
+          },
+          {
+            "key": "minecraft:wither_skeleton"
+          },
+          {
+            "key": "minecraft:husk"
+          },
+          {
+            "key": "minecraft:ender_dragon"
+          },
+          {
+            "key": "minecraft:shulker"
+          },
+          {
+            "key": "minecraft:cave_spider"
+          },
+          {
+            "key": "minecraft:piglin"
+          },
+          {
+            "key": "minecraft:enderman"
+          },
+          {
+            "key": "minecraft:silverfish"
+          },
+          {
+            "key": "minecraft:stray"
+          },
+          {
+            "key": "minecraft:endermite"
+          },
+          {
+            "key": "minecraft:vex"
+          },
+          {
+            "key": "minecraft:zombie"
+          },
+          {
+            "key": "minecraft:drowned"
+          },
+          {
+            "key": "minecraft:zombie_villager"
+          }
+        ],
+        "requirements": [
+          [
+            "minecraft:blaze"
+          ],
+          [
+            "minecraft:cave_spider"
+          ],
+          [
+            "minecraft:creeper"
+          ],
+          [
+            "minecraft:drowned"
+          ],
+          [
+            "minecraft:elder_guardian"
+          ],
+          [
+            "minecraft:ender_dragon"
+          ],
+          [
+            "minecraft:enderman"
+          ],
+          [
+            "minecraft:endermite"
+          ],
+          [
+            "minecraft:evoker"
+          ],
+          [
+            "minecraft:ghast"
+          ],
+          [
+            "minecraft:guardian"
+          ],
+          [
+            "minecraft:hoglin"
+          ],
+          [
+            "minecraft:husk"
+          ],
+          [
+            "minecraft:magma_cube"
+          ],
+          [
+            "minecraft:phantom"
+          ],
+          [
+            "minecraft:piglin"
+          ],
+          [
+            "minecraft:pillager"
+          ],
+          [
+            "minecraft:ravager"
+          ],
+          [
+            "minecraft:shulker"
+          ],
+          [
+            "minecraft:silverfish"
+          ],
+          [
+            "minecraft:skeleton"
+          ],
+          [
+            "minecraft:slime"
+          ],
+          [
+            "minecraft:spider"
+          ],
+          [
+            "minecraft:stray"
+          ],
+          [
+            "minecraft:vex"
+          ],
+          [
+            "minecraft:vindicator"
+          ],
+          [
+            "minecraft:witch"
+          ],
+          [
+            "minecraft:wither_skeleton"
+          ],
+          [
+            "minecraft:wither"
+          ],
+          [
+            "minecraft:zoglin"
+          ],
+          [
+            "minecraft:zombie_villager"
+          ],
+          [
+            "minecraft:zombie"
+          ],
+          [
+            "minecraft:zombified_piglin"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/two_birds_one_arrow",
+      "value": {
+        "parentId": "minecraft:adventure/ol_betsy",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.two_birds_one_arrow.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.two_birds_one_arrow.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 925,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 1,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 6.5
+        },
+        "criteria": [
+          {
+            "key": "two_birds"
+          }
+        ],
+        "requirements": [
+          [
+            "two_birds"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/totem_of_undying",
+      "value": {
+        "parentId": "minecraft:adventure/kill_a_mob",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.totem_of_undying.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.totem_of_undying.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 903,
+            "itemCount": 1
+          },
+          "frameType": 2,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 4.5
+        },
+        "criteria": [
+          {
+            "key": "used_totem"
+          }
+        ],
+        "requirements": [
+          [
+            "used_totem"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/whos_the_pillager_now",
+      "value": {
+        "parentId": "minecraft:adventure/ol_betsy",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.whos_the_pillager_now.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.whos_the_pillager_now.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 925,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 7.5
+        },
+        "criteria": [
+          {
+            "key": "kill_pillager"
+          }
+        ],
+        "requirements": [
+          [
+            "kill_pillager"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/honey_block_slide",
+      "value": {
+        "parentId": "minecraft:adventure/root",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.honey_block_slide.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.honey_block_slide.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 955,
+            "itemCount": 1
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 1,
+          "yCord": 6.5
+        },
+        "criteria": [
+          {
+            "key": "honey_block_slide"
+          }
+        ],
+        "requirements": [
+          [
+            "honey_block_slide"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/trade",
+      "value": {
+        "parentId": "minecraft:adventure/root",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.trade.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.trade.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 826,
+            "itemCount": 1
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 1,
+          "yCord": 5.5
+        },
+        "criteria": [
+          {
+            "key": "traded"
+          }
+        ],
+        "requirements": [
+          [
+            "traded"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/ol_betsy",
+      "value": {
+        "parentId": "minecraft:adventure/root",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.ol_betsy.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.ol_betsy.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 925,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 1,
+          "yCord": 7.5
+        },
+        "criteria": [
+          {
+            "key": "shot_crossbow"
+          }
+        ],
+        "requirements": [
+          [
+            "shot_crossbow"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/root",
+      "value": {
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.root.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.root.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 833,
+            "itemCount": 1
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 0,
+            "has_background_texture": 1
+          },
+          "backgroundTexture": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+          "xCord": 0,
+          "yCord": 4.75
+        },
+        "criteria": [
+          {
+            "key": "killed_by_something"
+          },
+          {
+            "key": "killed_something"
+          }
+        ],
+        "requirements": [
+          [
+            "killed_something",
+            "killed_by_something"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/shoot_arrow",
+      "value": {
+        "parentId": "minecraft:adventure/kill_a_mob",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.shoot_arrow.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.shoot_arrow.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 577,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 0,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 2.5
+        },
+        "criteria": [
+          {
+            "key": "shot_arrow"
+          }
+        ],
+        "requirements": [
+          [
+            "shot_arrow"
+          ]
+        ]
+      }
+    },
+    {
+      "key": "minecraft:adventure/adventuring_time",
+      "value": {
+        "parentId": "minecraft:adventure/sleep_in_bed",
+        "displayData": {
+          "title": "{\"translate\":\"advancements.adventure.adventuring_time.title\"}",
+          "description": "{\"translate\":\"advancements.adventure.adventuring_time.description\"}",
+          "icon": {
+            "present": true,
+            "itemId": 637,
+            "itemCount": 1,
+            "nbtData": {
+              "type": "compound",
+              "name": "",
+              "value": {
+                "Damage": {
+                  "type": "int",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "frameType": 1,
+          "flags": {
+            "_unused": 0,
+            "hidden": 0,
+            "show_toast": 1,
+            "has_background_texture": 0
+          },
+          "xCord": 2,
+          "yCord": 9.5
+        },
+        "criteria": [
+          {
+            "key": "minecraft:jungle_edge"
+          },
+          {
+            "key": "minecraft:cold_ocean"
+          },
+          {
+            "key": "minecraft:snowy_mountains"
+          },
+          {
+            "key": "minecraft:forest"
+          },
+          {
+            "key": "minecraft:mountains"
+          },
+          {
+            "key": "minecraft:badlands_plateau"
+          },
+          {
+            "key": "minecraft:mushroom_fields"
+          },
+          {
+            "key": "minecraft:taiga"
+          },
+          {
+            "key": "minecraft:desert_hills"
+          },
+          {
+            "key": "minecraft:giant_tree_taiga"
+          },
+          {
+            "key": "minecraft:deep_cold_ocean"
+          },
+          {
+            "key": "minecraft:snowy_tundra"
+          },
+          {
+            "key": "minecraft:taiga_hills"
+          },
+          {
+            "key": "minecraft:desert"
+          },
+          {
+            "key": "minecraft:frozen_river"
+          },
+          {
+            "key": "minecraft:deep_frozen_ocean"
+          },
+          {
+            "key": "minecraft:jungle"
+          },
+          {
+            "key": "minecraft:birch_forest"
+          },
+          {
+            "key": "minecraft:jungle_hills"
+          },
+          {
+            "key": "minecraft:snowy_beach"
+          },
+          {
+            "key": "minecraft:bamboo_jungle"
+          },
+          {
+            "key": "minecraft:warm_ocean"
+          },
+          {
+            "key": "minecraft:deep_lukewarm_ocean"
+          },
+          {
+            "key": "minecraft:badlands"
+          },
+          {
+            "key": "minecraft:savanna_plateau"
+          },
+          {
+            "key": "minecraft:beach"
+          },
+          {
+            "key": "minecraft:dark_forest"
+          },
+          {
+            "key": "minecraft:river"
+          },
+          {
+            "key": "minecraft:lukewarm_ocean"
+          },
+          {
+            "key": "minecraft:snowy_taiga"
+          },
+          {
+            "key": "minecraft:birch_forest_hills"
+          },
+          {
+            "key": "minecraft:wooded_mountains"
+          },
+          {
+            "key": "minecraft:bamboo_jungle_hills"
+          },
+          {
+            "key": "minecraft:wooded_hills"
+          },
+          {
+            "key": "minecraft:giant_tree_taiga_hills"
+          },
+          {
+            "key": "minecraft:stone_shore"
+          },
+          {
+            "key": "minecraft:wooded_badlands_plateau"
+          },
+          {
+            "key": "minecraft:mushroom_field_shore"
+          },
+          {
+            "key": "minecraft:swamp"
+          },
+          {
+            "key": "minecraft:snowy_taiga_hills"
+          },
+          {
+            "key": "minecraft:savanna"
+          },
+          {
+            "key": "minecraft:plains"
+          }
+        ],
+        "requirements": [
+          [
+            "minecraft:birch_forest_hills"
+          ],
+          [
+            "minecraft:river"
+          ],
+          [
+            "minecraft:swamp"
+          ],
+          [
+            "minecraft:desert"
+          ],
+          [
+            "minecraft:wooded_hills"
+          ],
+          [
+            "minecraft:giant_tree_taiga_hills"
+          ],
+          [
+            "minecraft:snowy_taiga"
+          ],
+          [
+            "minecraft:badlands"
+          ],
+          [
+            "minecraft:forest"
+          ],
+          [
+            "minecraft:stone_shore"
+          ],
+          [
+            "minecraft:snowy_tundra"
+          ],
+          [
+            "minecraft:taiga_hills"
+          ],
+          [
+            "minecraft:snowy_mountains"
+          ],
+          [
+            "minecraft:wooded_badlands_plateau"
+          ],
+          [
+            "minecraft:savanna"
+          ],
+          [
+            "minecraft:plains"
+          ],
+          [
+            "minecraft:frozen_river"
+          ],
+          [
+            "minecraft:giant_tree_taiga"
+          ],
+          [
+            "minecraft:snowy_beach"
+          ],
+          [
+            "minecraft:jungle_hills"
+          ],
+          [
+            "minecraft:jungle_edge"
+          ],
+          [
+            "minecraft:mushroom_field_shore"
+          ],
+          [
+            "minecraft:mountains"
+          ],
+          [
+            "minecraft:desert_hills"
+          ],
+          [
+            "minecraft:jungle"
+          ],
+          [
+            "minecraft:beach"
+          ],
+          [
+            "minecraft:savanna_plateau"
+          ],
+          [
+            "minecraft:snowy_taiga_hills"
+          ],
+          [
+            "minecraft:badlands_plateau"
+          ],
+          [
+            "minecraft:dark_forest"
+          ],
+          [
+            "minecraft:taiga"
+          ],
+          [
+            "minecraft:birch_forest"
+          ],
+          [
+            "minecraft:mushroom_fields"
+          ],
+          [
+            "minecraft:wooded_mountains"
+          ],
+          [
+            "minecraft:warm_ocean"
+          ],
+          [
+            "minecraft:lukewarm_ocean"
+          ],
+          [
+            "minecraft:cold_ocean"
+          ],
+          [
+            "minecraft:deep_lukewarm_ocean"
+          ],
+          [
+            "minecraft:deep_cold_ocean"
+          ],
+          [
+            "minecraft:deep_frozen_ocean"
+          ],
+          [
+            "minecraft:bamboo_jungle"
+          ],
+          [
+            "minecraft:bamboo_jungle_hills"
+          ]
+        ]
+      }
+    }
+  ],
+  "identifiers": [],
+  "progressMapping": [
+    {
+      "key": "minecraft:adventure/sleep_in_bed",
+      "value": [
+        {
+          "criterionIdentifier": "slept_in_bed"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/throw_trident",
+      "value": [
+        {
+          "criterionIdentifier": "shot_trident"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/kill_a_mob",
+      "value": [
+        {
+          "criterionIdentifier": "minecraft:blaze"
+        },
+        {
+          "criterionIdentifier": "minecraft:pillager"
+        },
+        {
+          "criterionIdentifier": "minecraft:skeleton"
+        },
+        {
+          "criterionIdentifier": "minecraft:elder_guardian"
+        },
+        {
+          "criterionIdentifier": "minecraft:zoglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:ravager"
+        },
+        {
+          "criterionIdentifier": "minecraft:ghast"
+        },
+        {
+          "criterionIdentifier": "minecraft:hoglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:guardian"
+        },
+        {
+          "criterionIdentifier": "minecraft:vindicator"
+        },
+        {
+          "criterionIdentifier": "minecraft:magma_cube"
+        },
+        {
+          "criterionIdentifier": "minecraft:spider"
+        },
+        {
+          "criterionIdentifier": "minecraft:creeper"
+        },
+        {
+          "criterionIdentifier": "minecraft:wither"
+        },
+        {
+          "criterionIdentifier": "minecraft:evoker"
+        },
+        {
+          "criterionIdentifier": "minecraft:slime"
+        },
+        {
+          "criterionIdentifier": "minecraft:phantom"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombified_piglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:witch"
+        },
+        {
+          "criterionIdentifier": "minecraft:wither_skeleton"
+        },
+        {
+          "criterionIdentifier": "minecraft:husk"
+        },
+        {
+          "criterionIdentifier": "minecraft:ender_dragon"
+        },
+        {
+          "criterionIdentifier": "minecraft:shulker"
+        },
+        {
+          "criterionIdentifier": "minecraft:cave_spider"
+        },
+        {
+          "criterionIdentifier": "minecraft:piglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:enderman"
+        },
+        {
+          "criterionIdentifier": "minecraft:silverfish"
+        },
+        {
+          "criterionIdentifier": "minecraft:stray"
+        },
+        {
+          "criterionIdentifier": "minecraft:endermite"
+        },
+        {
+          "criterionIdentifier": "minecraft:vex"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombie"
+        },
+        {
+          "criterionIdentifier": "minecraft:drowned"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombie_villager"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/summon_iron_golem",
+      "value": [
+        {
+          "criterionIdentifier": "summoned_golem"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/kill_all_mobs",
+      "value": [
+        {
+          "criterionIdentifier": "minecraft:blaze"
+        },
+        {
+          "criterionIdentifier": "minecraft:pillager"
+        },
+        {
+          "criterionIdentifier": "minecraft:skeleton"
+        },
+        {
+          "criterionIdentifier": "minecraft:elder_guardian"
+        },
+        {
+          "criterionIdentifier": "minecraft:zoglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:ravager"
+        },
+        {
+          "criterionIdentifier": "minecraft:ghast"
+        },
+        {
+          "criterionIdentifier": "minecraft:hoglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:guardian"
+        },
+        {
+          "criterionIdentifier": "minecraft:vindicator"
+        },
+        {
+          "criterionIdentifier": "minecraft:magma_cube"
+        },
+        {
+          "criterionIdentifier": "minecraft:spider"
+        },
+        {
+          "criterionIdentifier": "minecraft:creeper"
+        },
+        {
+          "criterionIdentifier": "minecraft:wither"
+        },
+        {
+          "criterionIdentifier": "minecraft:evoker"
+        },
+        {
+          "criterionIdentifier": "minecraft:slime"
+        },
+        {
+          "criterionIdentifier": "minecraft:phantom"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombified_piglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:witch"
+        },
+        {
+          "criterionIdentifier": "minecraft:wither_skeleton"
+        },
+        {
+          "criterionIdentifier": "minecraft:husk"
+        },
+        {
+          "criterionIdentifier": "minecraft:ender_dragon"
+        },
+        {
+          "criterionIdentifier": "minecraft:shulker"
+        },
+        {
+          "criterionIdentifier": "minecraft:cave_spider"
+        },
+        {
+          "criterionIdentifier": "minecraft:piglin"
+        },
+        {
+          "criterionIdentifier": "minecraft:enderman"
+        },
+        {
+          "criterionIdentifier": "minecraft:silverfish"
+        },
+        {
+          "criterionIdentifier": "minecraft:stray"
+        },
+        {
+          "criterionIdentifier": "minecraft:endermite"
+        },
+        {
+          "criterionIdentifier": "minecraft:vex"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombie"
+        },
+        {
+          "criterionIdentifier": "minecraft:drowned"
+        },
+        {
+          "criterionIdentifier": "minecraft:zombie_villager"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/two_birds_one_arrow",
+      "value": [
+        {
+          "criterionIdentifier": "two_birds"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/totem_of_undying",
+      "value": [
+        {
+          "criterionIdentifier": "used_totem"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/whos_the_pillager_now",
+      "value": [
+        {
+          "criterionIdentifier": "kill_pillager"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/honey_block_slide",
+      "value": [
+        {
+          "criterionIdentifier": "honey_block_slide"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/trade",
+      "value": [
+        {
+          "criterionIdentifier": "traded"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/ol_betsy",
+      "value": [
+        {
+          "criterionIdentifier": "shot_crossbow"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/root",
+      "value": [
+        {
+          "criterionIdentifier": "killed_by_something",
+          "criterionProgress": [
+            371,
+            -112653112
+          ]
+        },
+        {
+          "criterionIdentifier": "killed_something"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/shoot_arrow",
+      "value": [
+        {
+          "criterionIdentifier": "shot_arrow"
+        }
+      ]
+    },
+    {
+      "key": "minecraft:adventure/adventuring_time",
+      "value": [
+        {
+          "criterionIdentifier": "minecraft:jungle_edge"
+        },
+        {
+          "criterionIdentifier": "minecraft:cold_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:snowy_mountains"
+        },
+        {
+          "criterionIdentifier": "minecraft:forest",
+          "criterionProgress": [
+            371,
+            -116725112
+          ]
+        },
+        {
+          "criterionIdentifier": "minecraft:mountains"
+        },
+        {
+          "criterionIdentifier": "minecraft:badlands_plateau"
+        },
+        {
+          "criterionIdentifier": "minecraft:mushroom_fields"
+        },
+        {
+          "criterionIdentifier": "minecraft:taiga"
+        },
+        {
+          "criterionIdentifier": "minecraft:desert_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:giant_tree_taiga"
+        },
+        {
+          "criterionIdentifier": "minecraft:deep_cold_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:snowy_tundra"
+        },
+        {
+          "criterionIdentifier": "minecraft:taiga_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:desert"
+        },
+        {
+          "criterionIdentifier": "minecraft:frozen_river"
+        },
+        {
+          "criterionIdentifier": "minecraft:deep_frozen_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:jungle"
+        },
+        {
+          "criterionIdentifier": "minecraft:birch_forest"
+        },
+        {
+          "criterionIdentifier": "minecraft:jungle_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:snowy_beach"
+        },
+        {
+          "criterionIdentifier": "minecraft:bamboo_jungle"
+        },
+        {
+          "criterionIdentifier": "minecraft:warm_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:deep_lukewarm_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:badlands"
+        },
+        {
+          "criterionIdentifier": "minecraft:savanna_plateau"
+        },
+        {
+          "criterionIdentifier": "minecraft:beach"
+        },
+        {
+          "criterionIdentifier": "minecraft:dark_forest"
+        },
+        {
+          "criterionIdentifier": "minecraft:river"
+        },
+        {
+          "criterionIdentifier": "minecraft:lukewarm_ocean"
+        },
+        {
+          "criterionIdentifier": "minecraft:snowy_taiga"
+        },
+        {
+          "criterionIdentifier": "minecraft:birch_forest_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:wooded_mountains"
+        },
+        {
+          "criterionIdentifier": "minecraft:bamboo_jungle_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:wooded_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:giant_tree_taiga_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:stone_shore"
+        },
+        {
+          "criterionIdentifier": "minecraft:wooded_badlands_plateau"
+        },
+        {
+          "criterionIdentifier": "minecraft:mushroom_field_shore"
+        },
+        {
+          "criterionIdentifier": "minecraft:swamp"
+        },
+        {
+          "criterionIdentifier": "minecraft:snowy_taiga_hills"
+        },
+        {
+          "criterionIdentifier": "minecraft:savanna"
+        },
+        {
+          "criterionIdentifier": "minecraft:plains",
+          "criterionProgress": [
+            371,
+            -112644112
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "entityId": 227,
+  "properties": [
+    {
+      "key": "minecraft:generic.max_health",
+      "value": 28,
+      "modifiers": []
+    },
+    {
+      "key": "minecraft:generic.movement_speed",
+      "value": 0.20487207995830747,
+      "modifiers": []
+    },
+    {
+      "key": "minecraft:horse.jump_strength",
+      "value": 0.830769982604862,
+      "modifiers": []
+    },
+    {
+      "key": "minecraft:generic.armor",
+      "value": 0,
+      "modifiers": []
+    }
+  ]
+}
