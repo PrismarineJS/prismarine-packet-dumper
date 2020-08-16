@@ -37,15 +37,31 @@ async function main () {
     }
   }
 
-  const files = await Promise.all([
+  const kinds = await Promise.all([
     fsP.readdir('packets/from-server'),
     fsP.readdir('packets/from-client')
   ])
-  for (const filename of files[0]) {
-    doVerify(await fsP.readFile('packets/from-server/' + filename), +filename, Direction.ServerToClient)
+  for (const kind of kinds[0]) {
+    for (const n of await fsP.readdir('packets/from-server/' + kind)) {
+      if (n.includes('.raw')) {
+        try {
+          doVerify(await fsP.readFile('packets/from-server/' + kind + '/' + n), Direction.ServerToClient)
+        } catch (err) {
+          console.error(err)
+        }
+      }
+    }
   }
-  for (const filename of files[1]) {
-    doVerify(await fsP.readFile('packets/from-client/' + filename), +filename, Direction.ClientToServer)
+  for (const kind of kinds[1]) {
+    for (const n of await fsP.readdir('packets/from-client/' + kind)) {
+      if (n.includes('.raw')) {
+        try {
+          doVerify(await fsP.readFile('packets/from-client/' + kind + '/' + n), Direction.ClientToServer)
+        } catch (err) {
+          console.error(err)
+        }
+      }
+    }
   }
   console.log('done')
 }

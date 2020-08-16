@@ -59,11 +59,10 @@ async function fileExists (path) {
   packetLogger.start('localhost', 25565)
   packetLogger.bot.on('spawn', () => {
     console.log('bot connected')
-    server.writeServer('time set night') // allow bot to get murdered by a zombie or something
+    server.writeServer('time set night\n') // allow bot to get murdered by a zombie or something
   })
   setTimeout(() => {
     packetLogger.bot.quit()
-    server.stopServer()
-    process.exit(0)
+    server.stopServer(() => process.exit(0))
   }, 60 * 1000)
 }())
