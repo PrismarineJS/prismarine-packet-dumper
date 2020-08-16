@@ -3,7 +3,7 @@ const fsP = fs.promises
 const { Direction, prettyPrintBuffer, fullInspect } = require('../lib/common.js')
 const PacketVerifier = require('../lib/packet-verifier')
 
-(async function main () {
+async function main () {
   const version = process.argv[2]
   if (!version) {
     console.error('minecraft version must be specified!')
@@ -48,4 +48,6 @@ const PacketVerifier = require('../lib/packet-verifier')
     doVerify(await fsP.readFile('packets/from-client/' + filename), +filename, Direction.ClientToServer)
   }
   console.log('done')
-}())
+}
+
+main()
