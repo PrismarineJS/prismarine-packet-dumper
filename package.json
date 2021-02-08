@@ -23,7 +23,7 @@
   "dependencies": {
     "got": "^11.5.0",
     "minecraft-wrap": "^1.2.3",
-    "mineflayer": "^2.23.0",
+    "mineflayer": "^3.0.0",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
