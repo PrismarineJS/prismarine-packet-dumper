@@ -33,6 +33,11 @@ async function fileExists (path) {
     console.error('version needed as first argument!')
     process.exit(1)
   }
+  const outputType = process.argv[3]
+  if (outputType !== 'json' && outputType !== 'md') {
+    console.error('output type needed as second argument! (md or json)')
+    process.exit(1)
+  }
   if (!await fileExists(SERVER_DIRECTORY)) await fsP.mkdir(SERVER_DIRECTORY)
   console.log('downloading server')
   await downloadServer(version, SERVER_PATH)
@@ -70,8 +75,49 @@ async function fileExists (path) {
       collected: collectedPackets,
       missing: allPackets.filter(o => !collectedPackets.includes(o))
     }
-
-    fs.writeFileSync('packets_info.json', JSON.stringify(data, null, 2))
+    if (outputType === 'md') {
+      fs.writeFileSync('packets_info.md', makeMarkdown(data, version))
+    } else {
+      fs.writeFileSync('packets_info.json', JSON.stringify(data, null, 2))
+    }
     server.stopServer(() => process.exit(0))
   }, 20 * 1000)
 }())
+
+const makeDropdownStart = (name, arr) => {
+  arr.push(`<details><summary>${name}</summary>`)
+  arr.push('<p>')
+  arr.push('')
+}
+const makeDropdownEnd = (arr) => {
+  arr.push('')
+  arr.push('</p>')
+  arr.push('</details>')
+}
+
+function makeMarkdown (data, version) {
+  const str = []
+  const { collected, missing } = data
+
+  makeDropdownStart(version, str)
+
+  makeDropdownStart(`Collected (${collected.length})`, str)
+  str.push('| Packet |')
+  str.push('| --- |')
+  collected.forEach(elem => {
+    str.push(`| ${elem} |`)
+  })
+  makeDropdownEnd(str)
+
+  makeDropdownStart(`Missing (${missing.length})`, str)
+  str.push('| Packet |')
+  str.push('| --- |')
+  missing.forEach(elem => {
+    str.push(`| ${elem} |`)
+  })
+  makeDropdownEnd(str)
+
+  makeDropdownEnd(str)
+
+  return str.join('\n')
+}
