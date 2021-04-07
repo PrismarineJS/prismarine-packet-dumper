@@ -76,7 +76,7 @@ async function fileExists (path) {
       missing: allPackets.filter(o => !collectedPackets.includes(o))
     }
     if (outputType === 'md') {
-      fs.writeFileSync('packets_info.md', makeMarkdown(data, version))
+      fs.writeFileSync('README.md', makeMarkdown(data, version))
     } else {
       fs.writeFileSync('packets_info.json', JSON.stringify(data, null, 2))
     }
