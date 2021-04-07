@@ -99,8 +99,6 @@ function makeMarkdown (data, version) {
   const str = []
   const { collected, missing } = data
 
-  makeDropdownStart(version, str)
-
   makeDropdownStart(`Collected (${collected.length})`, str)
   str.push('| Packet |')
   str.push('| --- |')
@@ -115,8 +113,6 @@ function makeMarkdown (data, version) {
   missing.forEach(elem => {
     str.push(`| ${elem} |`)
   })
-  makeDropdownEnd(str)
-
   makeDropdownEnd(str)
 
   return str.join('\n')
