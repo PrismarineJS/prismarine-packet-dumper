@@ -33,5 +33,10 @@
   },
   "keywords": [
     "prismarine"
-  ]
+  ],
+  "bin": {
+    "generateMinecraftPackets": "./bin/generateLogs.js",
+    "generatePacketDumperCoverage": "./bin/testCoverage.js",
+    "verifyMinecraftPackets": "./bin/verifyPackets.js"
+  }
 }
