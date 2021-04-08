@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs')
 const fsP = fs.promises
 const { Direction, prettyPrintBuffer, fullInspect } = require('../lib/common.js')
