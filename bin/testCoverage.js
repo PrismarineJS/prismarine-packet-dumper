@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * This file is to see what packets were collected, and which were not
  */
