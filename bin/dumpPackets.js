@@ -65,6 +65,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     default: 'server',
     coerce: path.resolve
   })
+  .option('delTempFiles', {
+    alias: 't',
+    description: 'delete "server/", "versions/", "launcher_profiles.json"',
+    default: false,
+    boolean: true
+  })
   .help('help')
   // show examples of application in action.
   // final message to display when successful.
@@ -129,10 +135,10 @@ async function fileExists (path) {
     console.log('bot connected')
     server.writeServer('time set night\n') // allow bot to get murdered by a zombie or something
   })
-  setTimeout(() => {
+  setTimeout(async () => {
     const mcData = require('minecraft-data')(packetLogger.bot.version)
     packetLogger.bot.quit()
-    server.stopServer(() => process.exit(0))
+    await new Promise((resolve, reject) => server.stopServer(resolve))
 
     if (argv.saveStatistics) {
     // record packets
@@ -154,6 +160,12 @@ async function fileExists (path) {
       } else if (argv.statsFormat === 'json') {
         fs.writeFileSync(path.join(argv.jsonStatsSaveDir, 'packets_info.json'), JSON.stringify(data, null, 2))
       }
+    }
+
+    if (argv.delTempFiles) {
+      await fsP.rm(SERVER_DIRECTORY, { recursive: true, force: true })
+      await fsP.rm(path.resolve('versions'), { recursive: true, force: true })
+      await fsP.rm(path.resolve('launcher_accounts.json'), { recursive: true, force: true })
     }
   }, 60 * 1000)
 }())
