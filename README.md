@@ -31,7 +31,8 @@ verifier.verify(await fsP.readFile('packets/from-server/00000000'), Direction.Se
 ## Manually dump packets
 
 In order to dump packets from the vanilla client, there is a script called [clientProxy](bin/clientProxy.js)
-In order to use it, there are two ways:
+
+If you would like to use this without cloning from github, you can install it globally by following this guide:
 
 ### Global install
 
