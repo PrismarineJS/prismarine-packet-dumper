@@ -6,7 +6,7 @@ const fsP = require('fs').promises
 
 const version = process.argv[2]
 const host = process.argv[3]
-const port = process.argv[4] ?? 25565
+const port = +process.argv[4] ?? 25565
 const PACKET_DIRECTORY = path.resolve(process.argv[5] ?? 'packets')
 
 if (!process.argv[2] || !process.argv[3]) {
