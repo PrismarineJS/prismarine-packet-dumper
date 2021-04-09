@@ -28,6 +28,17 @@ let verifier = new PacketVerifier({ version: '1.16.1' });
 verifier.verify(await fsP.readFile('packets/from-server/00000000'), Direction.ServerToClient);
 ```
 
+## Manually dump packets
+
+In order to dump packets from the vanilla client, there is a script called [clientProxy](bin/clientProxy.js)
+In order to use it, there are two ways:
+
+### Global install
+
+`$ npm i -g prismarine-packet-dumper`
+
+`$ clientProxy <mc_version> <server_ip> [port] [packets_folder]`
+
 ## API
 
 TODO, for now, see jsdoc
