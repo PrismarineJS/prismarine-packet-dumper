@@ -135,7 +135,7 @@ async function fileExists (path) {
     console.log('bot connected')
     server.writeServer('time set night\n') // allow bot to get murdered by a zombie or something
   })
-  setTimeout(() => {
+  setTimeout(async () => {
     const mcData = require('minecraft-data')(packetLogger.bot.version)
     packetLogger.bot.quit()
     server.stopServer(() => process.exit(0))
