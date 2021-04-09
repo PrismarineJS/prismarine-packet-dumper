@@ -1,5 +1,9 @@
 ## History
 
+### 1.2.0
+
+* add an arg to dumpPackets
+
 ### 1.1.0
 
 * removed all the different packet dumpers from bin and just put packetDumnper.js and clientProxy.js in bin
