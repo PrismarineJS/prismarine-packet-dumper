@@ -24,7 +24,8 @@
     "got": "^11.5.0",
     "minecraft-wrap": "^1.2.3",
     "mineflayer": "^3.0.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "jest": "^26.1.0",
@@ -35,8 +36,6 @@
     "prismarine"
   ],
   "bin": {
-    "generateMinecraftPackets": "./bin/generateLogs.js",
-    "generatePacketDumperCoverage": "./bin/testCoverage.js",
-    "verifyMinecraftPackets": "./bin/verifyPackets.js"
+    "dumpPackets": "./bin/dumpPackets.js"
   }
 }
