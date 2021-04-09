@@ -36,6 +36,7 @@
     "prismarine"
   ],
   "bin": {
-    "dumpPackets": "./bin/dumpPackets.js"
+    "dumpPackets": "./bin/dumpPackets.js",
+    "clientProxy": "./bin/clientProxy.js"
   }
 }
