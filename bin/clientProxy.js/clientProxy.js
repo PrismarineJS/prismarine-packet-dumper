@@ -84,12 +84,12 @@ srv.on('login', function (client) {
     if (fromServKindCounter[meta.name] >= fromServMaxPerKind) {
       return
     }
-    fromServKindCounter[meta.name] += 1
+    fromServKindCounter[meta.name]++
     const n = fromServKindCounter[meta.name]
 
     await fromServKindPromise[meta.name]
-    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, '' + n + '.raw'), buffer)
-    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, '' + n + '.json'), JSON.stringify(data, null, 2))
+    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.raw`), buffer)
+    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.json`), JSON.stringify(data, null, 2))
   })
   const toServKindCounter = {}
   const toServKindPromise = {}
@@ -112,7 +112,7 @@ srv.on('login', function (client) {
       }
       if (toServKindCounter[meta.name] >= toServMaxPerKind) return
 
-      toServKindCounter[meta.name] += 1
+      toServKindCounter[meta.name]++
       const n = toServKindCounter[meta.name]
 
       await toServKindPromise[meta.name]
