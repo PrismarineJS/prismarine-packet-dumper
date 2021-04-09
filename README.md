@@ -32,6 +32,8 @@ verifier.verify(await fsP.readFile('packets/from-server/00000000'), Direction.Se
 
 In order to dump packets from the vanilla client, there is a script called [clientProxy](bin/clientProxy.js)
 
+In order to use, you run it with the server ip you would want to connect to, then connect with your client to `localhost:25566`
+
 If you would like to use this without cloning from github, you can install it globally by following this guide:
 
 ### Global install
