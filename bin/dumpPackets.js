@@ -65,6 +65,12 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     default: 'server',
     coerce: path.resolve
   })
+  .option('delTempFiles', {
+    alias: 't',
+    description: 'delete "server/", "versions/", "launcher_profiles.json"',
+    default: false,
+    boolean: true
+  })
   .help('help')
   // show examples of application in action.
   // final message to display when successful.
@@ -154,6 +160,12 @@ async function fileExists (path) {
       } else if (argv.statsFormat === 'json') {
         fs.writeFileSync(path.join(argv.jsonStatsSaveDir, 'packets_info.json'), JSON.stringify(data, null, 2))
       }
+    }
+
+    if (argv.delTempFiles) {
+      await fsP.rm(SERVER_DIRECTORY, { recursive: true, force: true })
+      await fsP.rm(path.resolve('versions'), { recursive: true, force: true })
+      await fsP.rm(path.resolve('launcher_profiles.json'), { recursive: true, force: true })
     }
   }, 60 * 1000)
 }())
