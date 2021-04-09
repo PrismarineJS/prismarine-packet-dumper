@@ -138,7 +138,7 @@ async function fileExists (path) {
   setTimeout(async () => {
     const mcData = require('minecraft-data')(packetLogger.bot.version)
     packetLogger.bot.quit()
-    server.stopServer(() => process.exit(0))
+    await new Promise((resolve, reject) => server.stopServer(resolve))
 
     if (argv.saveStatistics) {
     // record packets
@@ -165,7 +165,7 @@ async function fileExists (path) {
     if (argv.delTempFiles) {
       await fsP.rm(SERVER_DIRECTORY, { recursive: true, force: true })
       await fsP.rm(path.resolve('versions'), { recursive: true, force: true })
-      await fsP.rm(path.resolve('launcher_profiles.json'), { recursive: true, force: true })
+      await fsP.rm(path.resolve('launcher_accounts.json'), { recursive: true, force: true })
     }
   }, 60 * 1000)
 }())
