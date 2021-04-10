@@ -1,5 +1,9 @@
 ## History
 
+### 1.3.0
+
+* refactor dumpPackets and make sure everything works
+
 ### 1.2.0
 
 * add an arg to dumpPackets
