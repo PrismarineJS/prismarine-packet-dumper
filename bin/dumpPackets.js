@@ -31,19 +31,7 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
     alias: 'd',
     default: false,
     boolean: true,
-    description: "Run dumper but don't save packets"
-  })
-  .option('mdStatsSaveDir', {
-    string: true,
-    default: '.',
-    description: 'Where to save statistics file',
-    coerce: path.resolve
-  })
-  .option('jsonStatsSaveDir', {
-    string: true,
-    default: '.',
-    description: 'Where to save statistics file',
-    coerce: path.resolve
+    description: 'Run dumper but only save stats files'
   })
   .help('help')
   // show examples of application in action.
@@ -56,7 +44,6 @@ const argv = require('yargs/yargs')(process.argv.slice(2))
 
 const SERVER_DIRECTORY = path.resolve('temp')
 const SERVER_PATH = path.join(SERVER_DIRECTORY, 'server.jar')
-const PACKET_DIRECTORY = argv.outputFolder
 
 const downloadServer = util.promisify(minecraftWrap.download)
 
@@ -80,13 +67,15 @@ async function deleteIfExists (path) {
 
 async function setupDirectories () {
   console.log('deleting old packets & metadata')
-  await deleteIfExists(PACKET_DIRECTORY)
+  await deleteIfExists(argv.outputFolder)
   await deleteIfExists(path.resolve('packets_info.json'))
   await deleteIfExists(path.resolve('README.md'))
 
-  await fsP.mkdir(PACKET_DIRECTORY)
-  await fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-server'))
-  await fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-client'))
+  await fsP.mkdir(argv.outputFolder)
+
+  if (argv.dryrun) return // don't make packet dirs when no packets are generated
+  await fsP.mkdir(path.join(argv.outputFolder, 'from-server'))
+  await fsP.mkdir(path.join(argv.outputFolder, 'from-client'))
 }
 
 async function downloadMCServer (version) {
@@ -113,7 +102,7 @@ async function startServer () {
 }
 
 async function startMineflayer (version) {
-  const packetLogger = new MineflayerLog({ version, outputDirectory: PACKET_DIRECTORY, dryRun: argv.dryrun })
+  const packetLogger = new MineflayerLog({ version, outputDirectory: argv.outputFolder, dryRun: argv.dryrun })
   packetLogger.start('localhost', 25565)
   return packetLogger
 }
