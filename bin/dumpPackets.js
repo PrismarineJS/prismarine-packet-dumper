@@ -6,6 +6,7 @@ const path = require('path')
 const util = require('util')
 const MineflayerLog = require('../lib/mineflayer-log')
 const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
+const generatePackets = require('../lib/generate-packets')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .usage('Usage: $0 [options]')
@@ -130,15 +131,6 @@ async function makeStats (packetLogger, version) {
 
 function asyncStopServer (server) {
   return new Promise((resolve, reject) => server.stopServer(resolve))
-}
-
-// Logic for mineflayer bot to generate packets with
-async function generatePackets (server, bot) {
-  bot.once('spawn', () => {
-    console.log('bot connected')
-    server.writeServer('time set night\n') // allow bot to get murdered by a zombie or something
-  })
-  await new Promise((resolve, reject) => setTimeout(resolve, 60 * 1000)) // wait a minute to get packets
 }
 
 async function main () {
