@@ -1,5 +1,9 @@
 ## History
 
+### 1.4.0
+
+* actually wait a minute for dumpPackets + make a metadata folder
+
 ### 1.3.0
 
 * refactor dumpPackets and make sure everything works
