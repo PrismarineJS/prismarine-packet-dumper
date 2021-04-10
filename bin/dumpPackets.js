@@ -120,9 +120,12 @@ async function makeStats (packetLogger, version) {
     collected: collectedPackets,
     missing: allPackets.filter(o => !collectedPackets.includes(o))
   }
+  const metadataFolder = path.join(argv.outputFolder, 'metadata')
+  await deleteIfExists(metadataFolder)
 
-  await fsP.writeFile(path.join(argv.outputFolder, 'packets_info.json'), JSON.stringify(data, null, 2))
   await fsP.writeFile(path.join(argv.outputFolder, 'README.md'), makeMarkdown(data))
+  await fsP.mkdir(metadataFolder)
+  await fsP.writeFile(path.join(metadataFolder, 'packets_info.json'), JSON.stringify(data, null, 2))
 }
 
 function asyncStopServer (server) {
@@ -135,7 +138,7 @@ async function generatePackets (server, bot) {
     console.log('bot connected')
     server.writeServer('time set night\n') // allow bot to get murdered by a zombie or something
   })
-  await new Promise((resolve, reject) => setTimeout(resolve, 10 * 1000)) // wait a minute to get packets
+  await new Promise((resolve, reject) => setTimeout(resolve, 60 * 1000)) // wait a minute to get packets
 }
 
 async function main () {
