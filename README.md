@@ -44,4 +44,20 @@ If you would like to use this without cloning from github, you can install it gl
 
 ## API
 
-TODO, for now, see jsdoc
+### For [`bin/dumpPackets.js`](bin/dumpPackets.js)
+
+```
+$ node dumpPackets.js  --help
+Usage: dumpPackets.js [options]
+
+Options:
+  -v, --version, --ver          The mc version to dump       [string] [required]
+  -o, --outputFolder, --output  Where to save the dumped packets
+                                                    [string] [default: "output"]
+  -h, --help                    Show help                              [boolean]
+  -d, --dryrun                  Run dumper but only save stats files
+                                                      [boolean] [default: false]
+
+for more information visit https://discord.gg/tWaPBNtkaq
+```
+### For rest: TODO, for now, see jsdoc

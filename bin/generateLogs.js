@@ -4,7 +4,6 @@ const path = require('path')
 const fs = require('fs')
 const fsP = fs.promises
 const util = require('util')
-const rimraf = util.promisify(require('rimraf'))
 const minecraftWrap = require('minecraft-wrap')
 const MineflayerLog = require('../lib/mineflayer-log')
 
@@ -40,7 +39,7 @@ async function fileExists (path) {
 
   if (await fileExists(PACKET_DIRECTORY)) {
     console.log('deleting old packet log')
-    await rimraf(PACKET_DIRECTORY)
+    await fsP.rm(PACKET_DIRECTORY, { recursive: true, force: true })
   }
   await fsP.mkdir(PACKET_DIRECTORY)
   await fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-server'))
