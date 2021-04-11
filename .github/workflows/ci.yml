@@ -43,10 +43,9 @@ jobs:
     - run: npm install
     - name: Use Dumper
       run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }}
-    - run: rm -rF node_modules/
         
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: packets
-        path: .
+        path: output
