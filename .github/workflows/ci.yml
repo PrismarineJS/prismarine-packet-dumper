@@ -42,7 +42,7 @@ jobs:
         java-package: jre
     - run: npm install
     - name: Use Dumper
-      run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} && ls -R output
+      run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} -o ${{ matrix.mcVersionIndex }} && ls -R output
         
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
