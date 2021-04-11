@@ -9,7 +9,7 @@
 
 Dump minecraft packets
 
-## Usage
+## Usage 
 
 ```sh
 node bin/generateLogs.js 1.16.1
