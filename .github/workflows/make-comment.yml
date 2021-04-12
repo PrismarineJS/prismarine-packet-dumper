@@ -25,6 +25,7 @@ jobs:
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: ci.yml
         run_id: ${{github.event.workflow_run.id }}
         name: packets
         path: packets
