@@ -42,7 +42,7 @@ jobs:
         java-package: jre
     - run: npm install
     - name: Use Dumper
-      run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }}
+      run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} -o output/${{ matrix.mcVersionIndex }}
     - name: Save PR number
       run: echo ${{ github.event.number }} > ./output/NR
     - name: Upload artifacts
