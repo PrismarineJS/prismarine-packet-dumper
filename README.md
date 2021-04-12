@@ -7,7 +7,7 @@
 
 [![Try it on gitpod](https://img.shields.io/badge/try-on%20gitpod-brightgreen.svg)](https://gitpod.io/#https://github.com/PrismarineJS/prismarine-packet-dumper)
 
-Dump minecraft packets
+Dump minecraft packets   
 
 ## Usage
 
