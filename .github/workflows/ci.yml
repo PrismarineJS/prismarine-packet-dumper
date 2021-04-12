@@ -43,40 +43,13 @@ jobs:
     - run: npm install
     - name: Use Dumper
       run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }}
-        
+    - name: Save PR number
+      run: |
+        mkdir -p ./output
+        echo ${{ github.event.number }} > ./output/NR
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: packets
         path: output
-    
-  make-pr-comment:
-    if: github.ref != 'refs/heads/master'
-    needs: test
-    runs-on: ubuntu-latest
-        
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
-    - uses: actions/download-artifact@v2
-      with:
-        name: packets
-        path: packets
-    - run: npm i minecraft-data
-    - run: cd packets && node ../.github/workflows/md-comment-maker.js
-    - id: get-comment-body
-      run: |
-          body=$(cat packets/README.md)
-          body="${body//'%'/'%25'}"
-          body="${body//$'\n'/'%0A'}"
-          body="${body//$'\r'/'%0D'}" 
-          echo ::set-output name=body::$body
-    - name: Create comment
-      uses: peter-evans/create-or-update-comment@v1
-      with:
-        issue-number: ${{ github.event.pull_request.number }}
-        body: ${{ steps.get-comment-body.outputs.body }}
-        reactions: rocket
     

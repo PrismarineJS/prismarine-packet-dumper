@@ -1,25 +1,48 @@
-name: npm-publish
+# Done this way because of https://securitylab.github.com/research/github-actions-preventing-pwn-requests/
+name: Comment on the pull request
+
+# read-write repo token
+# access to secrets
 on:
-  push:
-    branches:
-      - master # Change this to your default branch
+  workflow_run:
+    workflows: ["ci"]
+    types:
+      - completed
+
 jobs:
-  npm-publish:
-    name: npm-publish
+  upload:
+    needs: test
     runs-on: ubuntu-latest
+    if: >
+      ${{ github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' }}
+        
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@master
-    - name: Set up Node.js
-      uses: actions/setup-node@master
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
       with:
-        node-version: 10.0.0
-    - name: Publish if version has been updated
-      uses: pascalgn/npm-publish-action@4f4bf159e299f65d21cd1cbd96fc5d53228036df
-      with: # All of theses inputs are optional
-        tag_name: "%s"
-        tag_message: "%s"
-        commit_pattern: "^Release (\\S+)"
-      env: # More info about the environment variables in the README
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
-        NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+        node-version: 14.x
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: ci.yml
+        workflow_conclusion: success
+        name: packets
+        path: packets
+    - run: npm i minecraft-data
+    - run: cd packets && node ../.github/workflows/md-comment-maker.js
+    - name: 'Comment on PR'
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            var fs = require('fs');
+            var issue_number = Number(fs.readFileSync('./NR'));
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue_number,
+              body: fs.readFileSync('./README.md', 'utf-8')
+            });
+    
