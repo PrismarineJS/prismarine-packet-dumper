@@ -44,9 +44,7 @@ jobs:
     - name: Use Dumper
       run: node bin/dumpPackets -v ${{ matrix.mcVersionIndex }}
     - name: Save PR number
-      run: |
-        mkdir -p ./output
-        echo ${{ github.event.number }} > ./output/NR
+      run: echo ${{ github.event.number }} > ./output/NR
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
