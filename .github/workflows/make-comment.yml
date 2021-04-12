@@ -37,10 +37,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
           var fs = require('fs');
-          var issue_number = Number(fs.readFileSync('./packets/NR'));
+          var issue_number = Number(fs.readFileSync('./packets/NR', 'utf-8'));
           await github.issues.createComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: issue_number,
-            body: fs.readFileSync('./README.md', 'utf-8')
+            body: fs.readFileSync('./packets/README.md', 'utf-8')
           });
