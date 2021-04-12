@@ -67,7 +67,7 @@ jobs:
     - run: npm i -g minecraft-data
     - run: cd packets && node .github/workflows/md-comment-maker.js
     - id: get-comment-body
-        run: |
+      run: |
           body=$(cat packets/README.md)
           body="${body//'%'/'%25'}"
           body="${body//$'\n'/'%0A'}"
