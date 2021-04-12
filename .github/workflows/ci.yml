@@ -64,8 +64,8 @@ jobs:
       with:
         name: packets
         path: packets
-    - run: npm i -g minecraft-data
-    - run: cd packets && node .github/workflows/md-comment-maker.js
+    - run: npm i minecraft-data
+    - run: cd packets && node ../.github/workflows/md-comment-maker.js
     - id: get-comment-body
       run: |
           body=$(cat packets/README.md)
