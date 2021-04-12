@@ -66,4 +66,17 @@ jobs:
         path: packets
     - run: npm i -g minecraft-data
     - run: cd packets && node .github/workflows/md-comment-maker.js
+    - id: get-comment-body
+        run: |
+          body=$(cat packets/README.md)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo ::set-output name=body::$body
+    - name: Create comment
+      uses: peter-evans/create-or-update-comment@v1
+      with:
+        issue-number: ${{ github.event.pull_request.number }}
+        body: ${{ steps.get-comment-body.outputs.body }}
+        reactions: rocket
     
