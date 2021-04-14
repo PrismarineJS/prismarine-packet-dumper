@@ -36,6 +36,7 @@
   ],
   "bin": {
     "dumpPackets": "./bin/dumpPackets.js",
-    "clientProxy": "./bin/clientProxy.js"
+    "clientProxy": "./bin/clientProxy.js",
+    "metricAggregator": "./bin/metricAggregator.js"
   }
 }
