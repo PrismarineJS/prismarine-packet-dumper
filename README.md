@@ -60,4 +60,16 @@ Options:
 
 for more information visit https://discord.gg/tWaPBNtkaq
 ```
+
+### For [`bin/metricAggregator.js`](bin/metricAggregator.js)
+
+Used to generate global packet stats, like the ones commented on each pr to this repo.
+
+How to use: 
+
+1. make a folder (ie: packets)
+2. dump many minecraft versions into packets folder, their folder names must be their semver number/snapshot name (ie 1.8.9 or 21w07a), the packets put in this repo should follow the same format as when dumped from [clientProxy.js](bin/clientProxy.js) or [dumpPackets.js](bin/dumpPackets.js)
+3. enter the packets directory and run the tool [metricAggregator.js](bin/metricAggregator.js)
+4. you should now have a file called README.md in the root of the packets/ directory
+
 ### For rest: TODO, for now, see jsdoc
