@@ -12,3 +12,7 @@ package-lock.json
 
 # downloaded version information
 /versions
+
+# output folder of using dumpPackets
+
+output
