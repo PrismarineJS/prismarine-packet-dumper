@@ -81,6 +81,7 @@ async function setupDirectories () {
 
 async function downloadMCServer (version) {
   await deleteIfExists(SERVER_DIRECTORY)
+  await fsP.mkdir(SERVER_DIRECTORY, { recursive: true })
   console.log('downloading server')
   await downloadServer(version, SERVER_PATH)
   console.log('done')
@@ -136,8 +137,8 @@ function asyncStopServer (server) {
 async function main () {
   // setup
   const version = argv.version
-  await downloadMCServer(version) // download server
   await setupDirectories() // delete old directories
+  await downloadMCServer(version) // download server
   // start client/server
   const server = await startServer() // start server
   const packetLogger = await startMineflayer(version) // start mineflayer
