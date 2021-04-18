@@ -4,7 +4,6 @@ const fs = require('fs')
 const fsP = fs.promises
 const path = require('path')
 const util = require('util')
-const wtf = require('wtfnode')
 const { once } = require('events')
 const MineflayerLog = require('../lib/mineflayer-log')
 const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
@@ -151,21 +150,12 @@ async function main () {
   const p = once(bot, 'end')
   bot.quit()
   await p
-  console.log('quit')
   await asyncStopServer(server)
-  console.log('stop serv')
   // make stats files
   await makeStats(packetLogger, version)
-  console.log('stats done')
   // delete temp files
   await cleanup()
-
-  console.log('before end')
-  setTimeout(() => {
-    console.log('the dump')
-    wtf.dump()
-    process.exit()
-  }, 1000)
+  process.exit()
 }
 
 main()
