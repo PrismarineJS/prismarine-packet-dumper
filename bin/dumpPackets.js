@@ -148,7 +148,9 @@ async function main () {
   const { bot } = packetLogger
   await generatePackets(server, bot)
   // stop client/server
+  const p = once(bot, 'end')
   bot.quit()
+  await p
   console.log('quit')
   await asyncStopServer(server)
   console.log('stop serv')
@@ -159,8 +161,6 @@ async function main () {
   await cleanup()
 
   console.log('before end')
-  await once(bot, 'end')
-  console.log('ended')
   setTimeout(() => {
     console.log('the dump')
     wtf.dump()
