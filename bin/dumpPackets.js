@@ -4,6 +4,8 @@ const fs = require('fs')
 const fsP = fs.promises
 const path = require('path')
 const util = require('util')
+const wtf = require('wtfnode')
+const { once } = require('events')
 const MineflayerLog = require('../lib/mineflayer-log')
 const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
 const generatePackets = require('../lib/generate-packets')
@@ -151,6 +153,11 @@ async function main () {
   await makeStats(packetLogger, version)
   // delete temp files
   await cleanup()
+
+  await once(bot, 'end')
+  setTimeout(() => {
+    wtf.dump()
+  }, 1000)
 }
 
 main()
