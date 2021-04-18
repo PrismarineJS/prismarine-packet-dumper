@@ -24,6 +24,7 @@
     "got": "^11.5.0",
     "minecraft-wrap": "^1.2.3",
     "mineflayer": "^3.0.0",
+    "wtfnode": "^0.8.4",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
