@@ -9,6 +9,7 @@ const { once } = require('events')
 const MineflayerLog = require('../lib/mineflayer-log')
 const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
 const generatePackets = require('../lib/generate-packets')
+const process = require('process')
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .usage('Usage: $0 [options]')
@@ -148,15 +149,22 @@ async function main () {
   await generatePackets(server, bot)
   // stop client/server
   bot.quit()
+  console.log('quit')
   await asyncStopServer(server)
+  console.log('stop serv')
   // make stats files
   await makeStats(packetLogger, version)
+  console.log('stats done')
   // delete temp files
   await cleanup()
 
+  console.log('before end')
   await once(bot, 'end')
+  console.log('ended')
   setTimeout(() => {
+    console.log('the dump')
     wtf.dump()
+    process.exit()
   }, 1000)
 }
 
