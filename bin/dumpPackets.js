@@ -99,7 +99,8 @@ async function startServer () {
   await util.promisify(server.startServer.bind(server))({
     'online-mode': false,
     difficulty: 'normal',
-    'spawn-protection': 'off'
+    'spawn-protection': 'off',
+    'spawn-monsters': 'false'
   })
   console.log('server started')
   return server
