@@ -4,7 +4,20 @@ on:
   pull_request:
     types: [edited]
 
-jobs:  
+jobs:
+  save-pr-number:
+    runs-on: ubuntu-latest
+    steps:
+    - name: make directory
+      run: mkdir output
+    - name: Save PR number
+      run: echo ${{ github.event.number }} > ./output/NR
+    - name: save to artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: packets
+        path: output
+  
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
