@@ -23,3 +23,32 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm test
+    
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
+    strategy:
+      matrix:
+        mcVersionIndex: ["1.8", "1.9", "1.10", "1.11", "1.11.2", "1.12", "1.13", "1.14", "1.15", "1.16", "1.16.5"]
+        
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+        java-package: jre
+    - run: npm install
+    - name: Use Dumper
+      run: |
+        mkdir output
+        node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} -o output/${{ matrix.mcVersionIndex }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: packets
+        path: output
+    
