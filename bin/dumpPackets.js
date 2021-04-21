@@ -100,7 +100,10 @@ async function startServer () {
     'online-mode': false,
     difficulty: 'normal',
     'spawn-protection': 'off',
-    'spawn-monsters': 'false'
+    'spawn-monsters': 'false',
+    'generate-structures': 'false',
+    'enable-command-block': 'true',
+    'level-type': 'FLAT',
   })
   console.log('server started')
   return server
