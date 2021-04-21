@@ -103,7 +103,7 @@ async function startServer () {
     'spawn-monsters': 'false',
     'generate-structures': 'false',
     'enable-command-block': 'true',
-    'level-type': 'FLAT',
+    'level-type': 'FLAT'
   })
   console.log('server started')
   return server
