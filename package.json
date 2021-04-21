@@ -23,7 +23,7 @@
   "dependencies": {
     "got": "^11.5.0",
     "minecraft-wrap": "^1.2.3",
-    "mineflayer": "^3.0.0",
+    "mineflayer": "u9g/mineflayer#add-awaitmessage",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
