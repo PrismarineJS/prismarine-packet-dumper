@@ -1,33 +1,26 @@
-name: CI
+name: PR-WORKFLOW
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+    types: [edited]
 
 jobs:
-  build:
-
+  save-pr-number:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - name: make directory
+      run: mkdir output
+    - name: Save PR number
+      run: echo ${{ github.event.number }} > ./output/NR
+    - name: save to artifact
+      uses: actions/upload-artifact@v2
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm test
-    
+        name: packets
+        path: output
+  
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
     strategy:
       matrix:
         mcVersionIndex: ["1.8", "1.9", "1.10", "1.11", "1.11.2", "1.12", "1.13", "1.14", "1.15", "1.16", "1.16.5"]
