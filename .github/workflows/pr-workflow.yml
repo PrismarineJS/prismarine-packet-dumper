@@ -2,7 +2,7 @@ name: PR-WORKFLOW
 
 on:
   pull_request:
-    types: [edited]
+    types: [ edited, synchronize ]
 
 jobs:
   save-pr-number:
