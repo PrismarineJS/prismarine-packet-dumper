@@ -27,7 +27,7 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "jest": "^26.1.0",
+    "jest": "^27.0.1",
     "require-self": "^0.2.3",
     "standard": "^16.0.1"
   },
