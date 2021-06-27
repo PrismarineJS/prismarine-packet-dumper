@@ -99,7 +99,12 @@ async function startServer () {
   await util.promisify(server.startServer.bind(server))({
     'online-mode': false,
     difficulty: 'normal',
-    'spawn-protection': 'off'
+    'spawn-protection': 'off',
+    'use-native-transport': 'false', // java 16 throws errors without this, https://www.spigotmc.org/threads/unable-to-access-address-of-buffer.311602
+    'level-type': 'FLAT',
+    'spawn-monsters': 'false',
+    'generate-structures': 'false',
+    'enable-command-block': 'true'
   })
   console.log('server started')
   return server
