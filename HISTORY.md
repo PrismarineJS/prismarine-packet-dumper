@@ -1,5 +1,9 @@
 ## History
 
+### 1.5.0
+
+* make metricAggregator & dump a lot of packets that we didn't before
+
 ### 1.4.0
 
 * actually wait a minute for dumpPackets + make a metadata folder
