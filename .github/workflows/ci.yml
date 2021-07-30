@@ -17,10 +17,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 12.x
     - run: npm install
     - run: npm test
     
@@ -51,4 +51,32 @@ jobs:
       with:
         name: packets
         path: output
-    
+        
+  upload-bench:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        mcVersionIndex: ["1.8", "1.9", "1.10", "1.11", "1.11.2", "1.12", "1.13", "1.14", "1.15", "1.16", "1.16.5"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - uses: actions/download-artifact@v2
+      with:
+        name: packets
+        path: packetsDumped
+    - run: npm install -g json-diff
+    - name: Generate Diff
+      run: |
+        mkdir output
+        json-diff packetsDumped/${{ matrix.mcVersionIndex }}/metadata/packets_info.json bench/${{ matrix.mcVersionIndex }}/metadata/packets_info.json > output/${{ matrix.mcVersionIndex }}.diff
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: diffs
+        path: output    
