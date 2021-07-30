@@ -55,10 +55,6 @@ jobs:
   upload-bench:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
-    strategy:
-      matrix:
-        mcVersionIndex: ["1.8", "1.9", "1.10", "1.11", "1.11.2", "1.12", "1.13", "1.14", "1.15", "1.16", "1.16.5"]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 12.x
@@ -68,14 +64,12 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: packets
-        path: packetsDumped
-    - run: npm install -g json-diff
+        path: bench
     - name: Generate Diff
       run: |
-        mkdir output
-        json-diff packetsDumped/${{ matrix.mcVersionIndex }}/metadata/packets_info.json bench/${{ matrix.mcVersionIndex }}/metadata/packets_info.json > output/${{ matrix.mcVersionIndex }}.diff
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+        rm -rf bench/*/from-server/*
+        rmdir bench/*/from-server/*
+        rm -rf bench/*/README.md
+    - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        name: diffs
-        path: output    
+        commit_message: Add bench data
