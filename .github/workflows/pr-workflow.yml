@@ -45,7 +45,7 @@ jobs:
         name: packets
         path: output
 
-  upload-bench:
+  make-diffs:
     runs-on: ubuntu-latest
     needs: test
     strategy:
@@ -63,6 +63,7 @@ jobs:
         name: packets
         path: packetsDumped
     - run: npm install -g json-diff
+    - run: ls -R
     - name: Generate Diff
       run: |
         mkdir output
