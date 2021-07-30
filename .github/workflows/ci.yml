@@ -27,7 +27,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.ref == 'refs/heads/master' && if: "!contains(github.event.head_commit.message, 'Add bench data')" #for prs, we use the pr-workflow
+    if: github.ref == 'refs/heads/master' && "!contains(github.event.head_commit.message, 'Add bench data')" #for prs, we use the pr-workflow
     strategy:
       matrix:
         mcVersionIndex: ["1.8", "1.9", "1.10", "1.11", "1.11.2", "1.12", "1.13", "1.14", "1.15", "1.16", "1.16.5"]
@@ -54,7 +54,7 @@ jobs:
         
   upload-bench:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
+    if: github.ref == 'refs/heads/master' && "!contains(github.event.head_commit.message, 'Add bench data')" #for prs, we use the pr-workflow
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js 12.x
