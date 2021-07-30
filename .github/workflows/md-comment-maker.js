@@ -19,7 +19,7 @@ async function main () {
     .map(data => data[1])
     .join('\n')
   txt += makeDropdownEnd()
-  await fsp.writeFile('lol.md', txt)
+  await fsp.writeFile('README.md', txt)
 }
 
 main()
