@@ -66,10 +66,7 @@ jobs:
         name: packets
         path: bench
     - name: Generate Diff
-      run: |
-        rm -rf bench/*/from-server/*
-        rmdir bench/*/from-server/*
-        rm -rf bench/*/README.md
+      run: rm -rf bench/*/from-server && rm -rf bench/*/README.md
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Add bench data
