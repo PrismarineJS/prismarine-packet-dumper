@@ -39,6 +39,9 @@ jobs:
       run: |
         mkdir output
         node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} -o output/${{ matrix.mcVersionIndex }}
+        rm -rf output/${{ matrix.mcVersionIndex }}/*/from-server/*
+        rmdir output/${{ matrix.mcVersionIndex }}/*/from-server/*
+        rm -rf output/${{ matrix.mcVersionIndex }}/*/README.md
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
