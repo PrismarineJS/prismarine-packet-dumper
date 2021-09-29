@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { join } = require('path')
 const mcData = require('minecraft-data')
 const { readdirSync, writeFileSync } = require('fs')
