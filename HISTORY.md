@@ -1,5 +1,9 @@
 ## History
 
+### 1.5.1
+
+* add hashbang to metricAggregator
+
 ### 1.5.0
 
 * make metricAggregator & dump a lot of packets that we didn't before
