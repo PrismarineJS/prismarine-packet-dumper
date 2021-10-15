@@ -88,8 +88,8 @@ srv.on('login', function (client) {
     const n = fromServKindCounter[meta.name]
 
     await fromServKindPromise[meta.name]
-    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.raw`), buffer)
-    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.json`), JSON.stringify(data, null, 2))
+    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-client', meta.name, `${n}.raw`), buffer)
+    await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-client', meta.name, `${n}.json`), JSON.stringify(data, null, 2))
   })
   const toServKindCounter = {}
   const toServKindPromise = {}
@@ -116,8 +116,8 @@ srv.on('login', function (client) {
       const n = toServKindCounter[meta.name]
 
       await toServKindPromise[meta.name]
-      await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-client', meta.name, `${n}.raw`), buffer)
-      await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-client', meta.name, `${n}.json`), JSON.stringify(data, null, 2))
+      await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.raw`), buffer)
+      await fsP.writeFile(path.join(PACKET_DIRECTORY, 'from-server', meta.name, `${n}.json`), JSON.stringify(data, null, 2))
     }
   })
   targetClient.on('end', function () {
