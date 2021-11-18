@@ -79,7 +79,7 @@ srv.on('login', function (client) {
     if (!(meta.state === states.PLAY && client.state === states.PLAY)) return
     if (fromServKindCounter[meta.name] === undefined) {
       fromServKindCounter[meta.name] = 0
-      fromServKindPromise[meta.name] = fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-server', meta.name))
+      fromServKindPromise[meta.name] = fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-client', meta.name))
     }
     if (fromServKindCounter[meta.name] >= fromServMaxPerKind) {
       return
@@ -108,7 +108,7 @@ srv.on('login', function (client) {
 
       if (toServKindCounter[meta.name] === undefined) {
         toServKindCounter[meta.name] = 0
-        toServKindPromise[meta.name] = fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-client', meta.name))
+        toServKindPromise[meta.name] = fsP.mkdir(path.join(PACKET_DIRECTORY, 'from-server', meta.name))
       }
       if (toServKindCounter[meta.name] >= toServMaxPerKind) return
 
