@@ -21,13 +21,20 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 14.x
-    - name: Download artifact
+    - name: Download diff artifact
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
         workflow: ci.yml
         run_id: ${{github.event.workflow_run.id }}
         name: diffs
+    - name: Download packets artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: ci.yml
+        run_id: ${{github.event.workflow_run.id }}
+        name: packets
     - run: npm i minecraft-data
     - run: node .github/workflows/md-comment-maker.js
     - name: Comment on PR
