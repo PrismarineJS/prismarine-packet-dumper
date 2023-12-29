@@ -1,5 +1,8 @@
 ## History
 
+### 1.6.1
+* [update publish action](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/7aa5bcfdb51be87b48aac3f6c7e4a55a5d909e46) (thanks @rom1504)
+
 ### 1.6.0
 * [Update java and node versions (#79)](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/6da2bfb5c2b2f8302e0916b633365d740e91974f) (thanks @rom1504)
 * [Trigger CI](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/2d6585a5e1822f404db1b15dcc0bfaaf0a4e258e) (thanks @rom1504)
