@@ -43,7 +43,7 @@ const srv = createServer({
   'online-mode': false,
   port: 25566,
   keepAlive: false,
-  version: version
+  version
 })
 srv.on('login', function (client) {
   const addr = client.socket.remoteAddress
@@ -62,11 +62,11 @@ srv.on('login', function (client) {
     if (!endedTargetClient) { targetClient.end('Error') }
   })
   const targetClient = createClient({
-    host: host,
-    port: port,
+    host,
+    port,
     username: client.username,
     keepAlive: false,
-    version: version
+    version
   })
   const fromServKindCounter = {}
   const fromServKindPromise = {}
