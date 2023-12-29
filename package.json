@@ -1,10 +1,10 @@
 {
   "name": "prismarine-packet-dumper",
-  "version": "1.5.0",
+  "version": "1.6.1",
   "description": "Automatically dump packets from a Minecraft server",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose",
+    "test": "mocha --reporter spec --exit",
     "pretest": "npm run lint && require-self",
     "prepare": "npm install require-self && require-self",
     "lint": "standard",
@@ -21,15 +21,15 @@
   },
   "homepage": "https://github.com/PrismarineJS/prismarine-packet-dumper#readme",
   "dependencies": {
-    "got": "^11.5.0",
+    "got": "^14.0.0",
     "minecraft-wrap": "^1.2.3",
-    "mineflayer": "^3.0.0",
+    "mineflayer": "^4.0.0",
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "jest": "^27.0.1",
+    "mocha": "^10.0.0",
     "require-self": "^0.2.3",
-    "standard": "^16.0.1"
+    "standard": "^17.0.0"
   },
   "keywords": [
     "prismarine"
