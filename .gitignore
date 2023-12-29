@@ -16,3 +16,5 @@ package-lock.json
 # output folder of using dumpPackets
 
 output
+
+temp/
