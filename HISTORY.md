@@ -1,5 +1,9 @@
 ## History
 
+### 1.7.0
+* [update mcversions (#82)](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/c8f850f80117f77bf9adfa1aca15bc45f06d69b0) (thanks @rom1504)
+* [Bump got from 13.0.0 to 14.0.0 (#78)](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/0e3c257322d61b2b6d1edbebf64048a3135cb5a3) (thanks @dependabot[bot])
+
 ### 1.6.1
 * [update publish action](https://github.com/PrismarineJS/prismarine-packet-dumper/commit/7aa5bcfdb51be87b48aac3f6c7e4a55a5d909e46) (thanks @rom1504)
 
