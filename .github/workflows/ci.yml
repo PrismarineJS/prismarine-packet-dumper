@@ -23,7 +23,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
+    if: "github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'Add bench data')" #for prs, we use the pr-workflow
     strategy:
       matrix:
         mcVersionIndex: ['1.8.8', '1.9.4', '1.10.2', '1.11.2', '1.12.2', '1.13.2', '1.14.4', '1.15.2', '1.16.5', '1.17.1', '1.18.2', '1.19', '1.19.2', '1.19.3', '1.19.4', '1.20.1']
@@ -49,4 +49,22 @@ jobs:
       with:
         name: packets
         path: output
-    
+        
+  upload-bench:
+    runs-on: ubuntu-latest
+    if: "github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'Add bench data')" #for prs, we use the pr-workflow
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - uses: actions/download-artifact@v2
+      with:
+        name: packets
+        path: bench
+    - name: Generate Diff
+      run: rm -rf bench/*/from-server && rm -rf bench/*/README.md
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Add bench data

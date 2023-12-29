@@ -121,8 +121,8 @@ async function makeStats (packetLogger, version) {
   const { collectedPackets, allPackets } = parsePacketCounter(version, packetLogger.kindCounter)
   // write packet data
   const data = {
-    collected: collectedPackets,
-    missing: allPackets.filter(o => !collectedPackets.includes(o))
+    collected: collectedPackets.sort(),
+    missing: allPackets.filter(o => !collectedPackets.includes(o)).sort()
   }
   const metadataFolder = path.join(argv.outputFolder, 'metadata')
   await deleteIfExists(metadataFolder)

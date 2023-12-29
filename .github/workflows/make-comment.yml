@@ -21,17 +21,23 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: 18.x
-    - name: Download artifact
+    - name: Download diff artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: ci.yml
+        run_id: ${{github.event.workflow_run.id }}
+        name: diffs
+    - name: Download packets artifact
       uses: dawidd6/action-download-artifact@v2
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
         workflow: ci.yml
         run_id: ${{github.event.workflow_run.id }}
         name: packets
-        path: packets
     - run: npm i minecraft-data
-    - run: cd packets && node ../.github/workflows/md-comment-maker.js
-    - name: 'Comment on PR'
+    - run: node .github/workflows/md-comment-maker.js
+    - name: Comment on PR
       uses: actions/github-script@v3
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,5 +48,5 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             issue_number: issue_number,
-            body: fs.readFileSync('./packets/README.md', 'utf-8')
+            body: fs.readFileSync('./README.md', 'utf-8')
           });
