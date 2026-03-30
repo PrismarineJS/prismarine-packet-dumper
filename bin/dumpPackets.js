@@ -10,6 +10,17 @@ const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
 const generatePackets = require('../lib/generate-packets')
 const process = require('process')
 
+// Handle connection errors (ECONNRESET/EPIPE) that occur when the server kicks the bot
+// These are expected during packet dumping and should not crash the process
+process.on('unhandledRejection', (err) => {
+  if (err.code === 'ECONNRESET' || err.code === 'EPIPE') {
+    console.log('Connection error (expected):', err.message)
+    return
+  }
+  console.error('Unhandled rejection:', err)
+  process.exit(1)
+})
+
 const argv = require('yargs/yargs')(process.argv.slice(2))
   .usage('Usage: $0 [options]')
   .version(false) // disable default version command
@@ -146,11 +157,24 @@ async function main () {
   const packetLogger = await startMineflayer(version) // start mineflayer
   // generate packets
   const { bot } = packetLogger
+  // Handle connection errors gracefully (e.g. ECONNRESET when server kicks the bot)
+  let botEnded = false
+  bot._client.on('error', (err) => {
+    console.log('Bot client error (expected during cleanup):', err.message)
+  })
+  bot.on('error', (err) => {
+    console.log('Bot error (expected during cleanup):', err.message)
+  })
+  bot.on('end', () => {
+    botEnded = true
+  })
   await generatePackets(server, bot)
   // stop client/server
-  const p = once(bot, 'end')
-  bot.quit()
-  await p
+  if (!botEnded) {
+    const p = once(bot, 'end')
+    bot.quit()
+    await p
+  }
   await asyncStopServer(server)
   // make stats files
   await makeStats(packetLogger, version)
