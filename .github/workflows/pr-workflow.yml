@@ -13,11 +13,11 @@ jobs:
     - name: Save PR number
       run: echo ${{ github.event.number }} > ./output/NR
     - name: save to artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: packets
         path: output
-  
+
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -42,7 +42,7 @@ jobs:
         mkdir output
         node bin/dumpPackets -v ${{ matrix.mcVersionIndex }} -o output/${{ matrix.mcVersionIndex }}
     - name: Upload artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: packets
         path: output
