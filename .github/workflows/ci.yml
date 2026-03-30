@@ -22,7 +22,7 @@ jobs:
     
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     if: github.ref == 'refs/heads/master' #for prs, we use the pr-workflow
     strategy:
       matrix:
@@ -47,6 +47,6 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: packets
+        name: packets-${{ matrix.mcVersionIndex }}
         path: output
     
