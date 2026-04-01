@@ -148,38 +148,56 @@ function asyncStopServer (server) {
 }
 
 async function main () {
-  // setup
-  const version = argv.version
-  await setupDirectories() // delete old directories
-  await downloadMCServer(version) // download server
-  // start client/server
-  const server = await startServer() // start server
-  const packetLogger = await startMineflayer(version) // start mineflayer
-  // generate packets
-  const { bot } = packetLogger
-  // Handle connection errors gracefully (e.g. ECONNRESET when server kicks the bot)
+  let server
+  let bot
   let botEnded = false
-  bot._client.on('error', (err) => {
-    console.log('Bot client error (expected during cleanup):', err.message)
-  })
-  bot.on('error', (err) => {
-    console.log('Bot error (expected during cleanup):', err.message)
-  })
-  bot.on('end', () => {
-    botEnded = true
-  })
-  await generatePackets(server, bot)
-  // stop client/server
-  if (!botEnded) {
-    const p = once(bot, 'end')
-    bot.quit()
-    await p
+  try {
+    // setup
+    const version = argv.version
+    await setupDirectories() // delete old directories
+    await downloadMCServer(version) // download server
+    // start client/server
+    server = await startServer() // start server
+    const packetLogger = await startMineflayer(version) // start mineflayer
+    // generate packets
+    bot = packetLogger.bot
+    // Handle connection errors gracefully (e.g. ECONNRESET when server kicks the bot)
+    bot._client.on('error', (err) => {
+      console.log('Bot client error (expected during cleanup):', err.message)
+    })
+    bot.on('error', (err) => {
+      console.log('Bot error (expected during cleanup):', err.message)
+    })
+    bot.on('end', () => {
+      botEnded = true
+    })
+    await generatePackets(server, bot)
+    // stop client/server
+    if (!botEnded) {
+      const p = once(bot, 'end')
+      bot.quit()
+      await p
+    }
+    await asyncStopServer(server)
+    // make stats files
+    await makeStats(packetLogger, version)
+    // delete temp files
+    await cleanup()
+  } catch (err) {
+    console.error('Error during packet dumping:', err.message)
+    // Ensure cleanup happens even on error
+    try {
+      if (bot && !botEnded) {
+        bot.quit()
+      }
+    } catch (e) { /* ignore cleanup errors */ }
+    try {
+      if (server) await asyncStopServer(server)
+    } catch (e) { /* ignore cleanup errors */ }
+    try {
+      await cleanup()
+    } catch (e) { /* ignore cleanup errors */ }
   }
-  await asyncStopServer(server)
-  // make stats files
-  await makeStats(packetLogger, version)
-  // delete temp files
-  await cleanup()
   process.exit()
 }
 
