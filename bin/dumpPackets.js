@@ -10,15 +10,14 @@ const { makeMarkdown, parsePacketCounter } = require('../lib/stats-helper')
 const generatePackets = require('../lib/generate-packets')
 const process = require('process')
 
-// Handle connection errors (ECONNRESET/EPIPE) that occur when the server kicks the bot
-// These are expected during packet dumping and should not crash the process
+// Handle errors that occur during packet dumping - these are expected and should not crash the process
+// Mineflayer can produce unhandled rejections from internal async operations (e.g. activateBlock)
 process.on('unhandledRejection', (err) => {
   if (err.code === 'ECONNRESET' || err.code === 'EPIPE') {
     console.log('Connection error (expected):', err.message)
     return
   }
-  console.error('Unhandled rejection:', err)
-  process.exit(1)
+  console.error('Unhandled rejection (non-fatal):', err.message || err)
 })
 
 const argv = require('yargs/yargs')(process.argv.slice(2))
